@@ -1,19 +1,28 @@
-﻿
-using TennisBookings.Web.External.Models;
+﻿using System.Threading.Tasks;
+using TennisBookings.Web.Domain;
+using TennisBookings.Web.External;
 
 namespace TennisBookings.Web.Services
 {
     public class WeatherForecaster : IWeatherForecaster
     {
-        public WeatherResult GetCurrentWeather()
-        {
-            // Pretend we call out to a remote 3rd party API here to get the real forecast
-            // For demo purposes. the result is hardcoded.
+        private readonly IWeatherApiClient _weatherApiClient;
 
-            return new WeatherResult
+        public WeatherForecaster(IWeatherApiClient weatherApiClient)
+        {
+            _weatherApiClient = weatherApiClient;
+        }
+
+        public async Task<CurrentWeatherResult> GetCurrentWeatherAsync()
+        {
+            var currentWeather = await _weatherApiClient.GetWeatherForecastAsync();
+
+            var result = new CurrentWeatherResult
             {
-                WeatherCondition = WeatherCondition.Sun
+                Description = currentWeather.Weather.Description
             };
+
+            return result;
         }
     }
 }

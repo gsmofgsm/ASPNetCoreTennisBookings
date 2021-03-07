@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TennisBookings.Web", "src\T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{636BDED0-5172-4DA8-BBB4-994FF3C4157C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisBookings.Web.Tests", "test\TennisBookings.Web.Tests\TennisBookings.Web.Tests.csproj", "{B8097082-4BA2-4EB5-8904-144E30968D71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TennisBookings.Web.Tests", "test\TennisBookings.Web.Tests\TennisBookings.Web.Tests.csproj", "{B8097082-4BA2-4EB5-8904-144E30968D71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherService.Api", "src\WeatherService.Api\WeatherService.Api.csproj", "{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,18 @@ Global
 		{B8097082-4BA2-4EB5-8904-144E30968D71}.Release|x64.Build.0 = Release|Any CPU
 		{B8097082-4BA2-4EB5-8904-144E30968D71}.Release|x86.ActiveCfg = Release|Any CPU
 		{B8097082-4BA2-4EB5-8904-144E30968D71}.Release|x86.Build.0 = Release|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Debug|x64.Build.0 = Debug|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Debug|x86.Build.0 = Debug|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Release|x64.ActiveCfg = Release|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Release|x64.Build.0 = Release|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Release|x86.ActiveCfg = Release|Any CPU
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +66,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{74A1EEEE-6FB1-482E-98AD-C1BC19078448} = {B5BA0B59-8D91-4F07-8090-34BDE097EFC9}
 		{B8097082-4BA2-4EB5-8904-144E30968D71} = {636BDED0-5172-4DA8-BBB4-994FF3C4157C}
+		{F8E9DF89-F6FF-45C6-A89E-33F77B484C65} = {B5BA0B59-8D91-4F07-8090-34BDE097EFC9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48D28C8F-7C17-44A2-8CBC-FE82743DB063}

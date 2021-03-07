@@ -68,7 +68,8 @@ namespace TennisBookings.Web
                 ServiceDescriptor.Singleton<ICourtBookingRule, ClubIsOpenRule>(),
                 ServiceDescriptor.Singleton<ICourtBookingRule, MaxBookingLengthRule>(),
                 ServiceDescriptor.Singleton<ICourtBookingRule, MaxPeakTimeBookingLengthRule>(),
-                ServiceDescriptor.Scoped<ICourtBookingRule, MemberCourtBookingsMaxHoursPerDayRule>()
+                ServiceDescriptor.Scoped<ICourtBookingRule, MemberCourtBookingsMaxHoursPerDayRule>(),
+                ServiceDescriptor.Scoped<ICourtBookingRule, MemberBookingMustNotOverlapRule>()
             });
 
             services.TryAddScoped<IBookingRuleProcessor, BookingRuleProcessor>();

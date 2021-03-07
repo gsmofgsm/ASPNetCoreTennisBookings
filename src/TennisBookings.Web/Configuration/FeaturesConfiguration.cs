@@ -3,6 +3,6 @@ namespace TennisBookings.Web.Configuration
 {
     public class FeaturesConfiguration
     {
-        public bool EnabledWeatherForecast { get; set; }
+        public bool EnableWeatherForecast { get; set; }
     }
 }

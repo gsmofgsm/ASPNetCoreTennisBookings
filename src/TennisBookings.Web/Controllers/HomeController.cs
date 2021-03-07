@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using TennisBookings.Web.Configuration;
 using TennisBookings.Web.External.Models;
 using TennisBookings.Web.Services;
 using TennisBookings.Web.ViewModels;
@@ -8,10 +10,13 @@ namespace TennisBookings.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IWeatherForecaster _weatherForecaster;
+        private readonly FeaturesConfiguration _featuresConfiguration;
 
-        public HomeController(IWeatherForecaster weatherForecaster)
+        public HomeController(IWeatherForecaster weatherForecaster,
+            IOptions<FeaturesConfiguration> options)
         {
             _weatherForecaster = weatherForecaster;
+            _featuresConfiguration = options.Value;
         }
 
         [Route("")]
@@ -19,21 +24,24 @@ namespace TennisBookings.Web.Controllers
         {
             var viewModel = new HomeViewModel();
 
-            var currentWeather = _weatherForecaster.GetCurrentWeather();
-
-            switch (currentWeather.WeatherCondition)
+            if (_featuresConfiguration.EnableWeatherForecast)
             {
-                case WeatherCondition.Sun:
-                    viewModel.WeatherDescription = "It's sunny right now. A great day for tennis.";
-                    break;
+                var currentWeather = _weatherForecaster.GetCurrentWeather();
 
-                case WeatherCondition.Rain:
-                    viewModel.WeatherDescription = "We're sorry but it's raining here. No outdoor courts in use.";
-                    break;
-                    
-                default:
-                    viewModel.WeatherDescription = "We don't have the latest weather information right now, please check again later.";
-                    break;
+                switch (currentWeather.WeatherCondition)
+                {
+                    case WeatherCondition.Sun:
+                        viewModel.WeatherDescription = "It's sunny right now. A great day for tennis.";
+                        break;
+
+                    case WeatherCondition.Rain:
+                        viewModel.WeatherDescription = "We're sorry but it's raining here. No outdoor courts in use.";
+                        break;
+
+                    default:
+                        viewModel.WeatherDescription = "We don't have the latest weather information right now, please check again later.";
+                        break;
+                }
             }
 
             return View(viewModel);

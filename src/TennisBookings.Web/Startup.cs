@@ -43,7 +43,14 @@ namespace TennisBookings.Web
             services.Configure<BookingConfiguration>(Configuration.GetSection("CourtBookings"));
 
             services.AddHttpClient<IWeatherApiClient, WeatherApiClient>();
-            services.AddSingleton<IWeatherForecaster, WeatherForecaster>();
+            //services.AddSingleton<IWeatherForecaster, WeatherForecaster>();
+
+            // service descriptor examples
+            var serviceDescritor1 = new ServiceDescriptor(typeof(IWeatherForecaster), typeof(WeatherForecaster), ServiceLifetime.Singleton);
+            var serviceDescritor2 = ServiceDescriptor.Describe(typeof(IWeatherForecaster), typeof(WeatherForecaster), ServiceLifetime.Singleton);
+            var serviceDescritor3 = ServiceDescriptor.Singleton(typeof(IWeatherForecaster), typeof(WeatherForecaster));
+            var serviceDescritor4 = ServiceDescriptor.Singleton<IWeatherForecaster, WeatherForecaster>();
+            services.Add(serviceDescritor1);
 
             services.TryAddScoped<ILessonBookingService, LessonBookingService>();
             services.TryAddScoped<ICourtService, CourtService>();

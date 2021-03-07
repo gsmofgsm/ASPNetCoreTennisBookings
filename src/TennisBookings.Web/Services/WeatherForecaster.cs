@@ -3,7 +3,7 @@ using TennisBookings.Web.External.Models;
 
 namespace TennisBookings.Web.Services
 {
-    public class WeatherForecaster
+    public class WeatherForecaster : IWeatherForecaster
     {
         public WeatherResult GetCurrentWeather()
         {

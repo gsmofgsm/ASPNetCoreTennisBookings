@@ -44,8 +44,10 @@ namespace TennisBookings.Web
 
             services.AddHttpClient<IWeatherApiClient, WeatherApiClient>();
             services.AddSingleton<IWeatherForecaster, WeatherForecaster>();
-            //services.AddSingleton<IWeatherForecaster, AmazingWeatherForcaster>();  // last registration wins
-            services.TryAddSingleton<IWeatherForecaster, AmazingWeatherForcaster>();  // Try will only add when there is no services registered yet
+            //services.AddSingleton<IWeatherForecaster, AmazingWeatherForcaster>();  // last registration wins, but earlier registry is still there
+            //services.TryAddSingleton<IWeatherForecaster, AmazingWeatherForcaster>();  // Try will only add when there is no services registered yet
+            services.Replace(ServiceDescriptor.Singleton<IWeatherForecaster, AmazingWeatherForcaster>());  // The earliest(one) registry will be replaced
+            services.RemoveAll<IWeatherForecaster>();
 
             //// service descriptor examples - should avoid doing so
             //var serviceDescritor1 = new ServiceDescriptor(typeof(IWeatherForecaster), typeof(WeatherForecaster), ServiceLifetime.Singleton);
